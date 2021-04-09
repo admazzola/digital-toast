@@ -6,7 +6,7 @@
         {"filename":"1C.png", "position": {"x":0.0,"y": 0.6 ,"z":0.022}, "scale": 0.7 , "spawnDelay": 13000 , "lifetime": 16000 },
 
         {"filename":"gif19C.gif", "position": {"x":-0.3,"y":-0.4,"z":0.01},  "scale": 1,  "spawnDelay": 170000 , "lifetime": 14000 },
-        {"filename":"gif35Cfinal-2.gif", "position": {"x":0.3,"y":-0.2,"z":0.015},  "scale": 1,  "spawnDelay": 20000 , "lifetime": 17000 },
+        {"filename":"gif35Cfinal-2.gif", "position": {"x":0.3,"y":-0.2,"z":0.014},  "scale": 1,  "spawnDelay": 20000 , "lifetime": 17000 },
         
         {"filename":"pizzapool.png", "position": {"x":-0.3,"y":-0.3,"z":0.0151},  "scale": 1,  "spawnDelay": 26000 , "lifetime": 12000 }  ,  
         {"filename":"garfield.png", "position": {"x":-0.3,"y":-0.3,"z":0.0152},  "scale": 1,  "spawnDelay": 34000 , "lifetime": 6000 }   , 
