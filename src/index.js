@@ -60,7 +60,7 @@
 
     var finishedLoading = false
 
-   
+   var controls; 
 
 async function init() {
 
@@ -114,7 +114,7 @@ async function init() {
     const pmremGenerator = new THREE.PMREMGenerator( renderer );
     pmremGenerator.compileEquirectangularShader();
 
-    const controls = new OrbitControls( camera, renderer.domElement );
+    controls =  new OrbitControls( camera, renderer.domElement );
 //	controls.addEventListener( 'change', render ); // use if there is no animation loop
     controls.minDistance = 2;
     controls.maxDistance = 10;
@@ -383,10 +383,16 @@ function animate() {
      
    }
  
-    
+    console.log(controls)
+   let controlsState = controls.getState();
+   console.log('meep', controlsState)
+   let currentlyPanning = (controlsState >= 0)
 
+   if(!currentlyPanning){
     group.rotation.y +=  0.005;
-
+   }
+    
+ 
 
     renderer.render( scene, camera );
 

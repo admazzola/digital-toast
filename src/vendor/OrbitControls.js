@@ -113,6 +113,12 @@ var OrbitControls = function ( object, domElement ) {
 
 	};
 
+	this.getState = function () {
+
+		return state;
+
+	};
+
 	this.reset = function () {
 
 		scope.target.copy( scope.target0 );
