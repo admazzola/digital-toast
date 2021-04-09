@@ -1,0 +1,23 @@
+{
+    "images":[
+
+        {"filename":"gif15C.gif", "position": {"x":0,"y":0,"z":0},  "scale": 1,  "spawnDelay":  0 , "lifetime": 35000 },
+        {"filename":"FB_IMG_1579112185362.jpg", "position": {"x":0.25,"y":-0.4,"z":0.02}, "scale": 0.7 , "spawnDelay": 8000 , "lifetime": 12000 },
+        {"filename":"1C.png", "position": {"x":0.0,"y": 0.6 ,"z":0.022}, "scale": 0.7 , "spawnDelay": 13000 , "lifetime": 16000 },
+
+        {"filename":"gif19C.gif", "position": {"x":-0.3,"y":-0.4,"z":0.01},  "scale": 1,  "spawnDelay": 170000 , "lifetime": 14000 },
+        {"filename":"gif35Cfinal-2.gif", "position": {"x":0.3,"y":-0.2,"z":0.015},  "scale": 1,  "spawnDelay": 20000 , "lifetime": 17000 },
+        
+        {"filename":"pizzapool.png", "position": {"x":-0.3,"y":-0.3,"z":0.0151},  "scale": 1,  "spawnDelay": 26000 , "lifetime": 12000 }  ,  
+        {"filename":"garfield.png", "position": {"x":-0.3,"y":-0.3,"z":0.0152},  "scale": 1,  "spawnDelay": 34000 , "lifetime": 6000 }   , 
+        {"filename":"ff111C.png", "position": {"x":0.3,"y":0.5,"z":0.0153},  "scale": 1,  "spawnDelay": 36000 , "lifetime": 5000 }    ,
+        {"filename":"firerescue.png", "position": {"x":0.3,"y":-0.25,"z":0.0158},  "scale": 1,  "spawnDelay": 39000 , "lifetime": 7000 } ,   
+        {"filename":"waifu.jpg", "position": {"x":0,"y":0.3,"z":0.0154},  "scale": 1,  "spawnDelay": 41000 , "lifetime": 9000 }    ,
+        {"filename":"qat_of_profits.png", "position": {"x":-0.3,"y":-0.2,"z":0.0155},  "scale": 1,  "spawnDelay": 43000 , "lifetime": 11000 }  ,  
+        {"filename":"chalk.jpg", "position": {"x":0.3,"y":0.2,"z":0.0157},  "scale": 1.2,  "spawnDelay": 52000 , "lifetime": 9000 }    
+       
+    ]
+
+
+
+}

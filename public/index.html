@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Digital Toast</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	 
+	</head>
+
+	<body>
+		<div id="info">
+			 
+			<a href="https://hdrihaven.com/hdri/?h=royal_esplanade" target="_blank" rel="noopener">Digital Toast</a> by <a href="https://hdrihaven.com/" target="_blank" rel="noopener">InfernalToast</a>
+		</div>
+
+		<script type="module">
+			import * as THREE from './vendor/three.module.js'; 
+			
+			import {
+			PerspectiveCamera,
+			MeshStandardMaterial,
+			WebGLRenderer ,
+			TextureLoader,
+			BoxBufferGeometry,
+			Mesh,
+			VideoTexture
+			} from './vendor/three.module.js';
+
+
+			
+
+			import { GLTFLoader } from './vendor/GLTFLoader.js';
+		  	 import { OrbitControls } from './vendor/OrbitControls.js';
+
+			   import { TTFLoader } from './vendor/TTFLoader.js';
+			  
+			 
+			//import { RoughnessMipmapper } from './jsm/utils/RoughnessMipmapper.js';
+
+
+			 var group = new THREE.Group();
+
+
+			 let text = 'three.js';
+			 const height = 20,
+				size = 70,
+				hover = 30,
+				curveSegments = 4,
+				bevelThickness = 2,
+				bevelSize = 1.5;
+ 
+			
+			
+			let camera, scene, renderer;
+
+			init();
+			
+			//render();
+
+			renderer.setAnimationLoop(() => {
+				animate(); 
+		
+			});
+
+			function init() {
+
+				const container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
+				camera.position.set( 3.8, 0.6, -4.7 );
+
+				scene = new THREE.Scene();
+ 
+				const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.7);
+				scene.add(ambientLight);
+
+				
+
+
+				 
+				const dirLight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+				 
+				 dirLight.position.set( 0.2, 0.8, 0.2 ); //default; light shining from top
+				 dirLight.castShadow = true; // default false
+				scene.add(dirLight);
+
+				scene.add(group)
+
+				 
+						let gifURL = './assets/textures/gif15C.gif'
+
+						let animTex = 
+
+
+						gifMaterial1.update()
+
+						/*let gifMaterial1 = loadGifMaterial()
+
+
+						let boxGeom = new BoxBufferGeometry(2, 2, 2);
+ 
+
+						const cube = new Mesh(boxGeom, gifMaterial1);
+
+
+						group.add( cube );*/
+						
+
+
+						const textLoader = new TTFLoader();
+
+						textLoader.load( './assets/kenpixel.ttf', function ( json ) {
+
+							let font = new THREE.Font( json );
+							let textGroup = createText( font );
+
+							group.add( textGroup );
+							render();
+						} );
+
+
+
+
+						const modelLoader = new GLTFLoader().setPath( './assets/' );
+						modelLoader.load( 'QmPzbE1TJ78QmKQJxL9xjBf2mQzxvFfnVgnJciS9R847Z7.gltf', function ( gltf ) {
+
+							gltf.scene.traverse( function ( child ) {
+
+								if ( child.isMesh ) {
+
+								 
+
+								}
+
+							} );
+
+							group.add( gltf.scene );
+ 
+
+							render();
+
+						} );
+ 
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 1;
+				renderer.outputEncoding = THREE.sRGBEncoding;
+				container.appendChild( renderer.domElement );
+
+				const pmremGenerator = new THREE.PMREMGenerator( renderer );
+				pmremGenerator.compileEquirectangularShader();
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+			//	controls.addEventListener( 'change', render ); // use if there is no animation loop
+				controls.minDistance = 2;
+				controls.maxDistance = 10;
+				controls.target.set( 0, 0, - 0.2 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			 
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+
+
+			function createText(font) {
+
+			 let  material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
+
+			 let group = new THREE.Group()
+
+				let textGeo = new THREE.TextGeometry( text, {
+
+					font: font,
+
+					size: 26,
+					height: 2,
+					curveSegments: curveSegments,
+
+					bevelThickness: 5,
+					bevelSize: bevelSize,
+					bevelEnabled: false
+
+				} );
+
+				textGeo.computeBoundingBox();
+				textGeo.computeVertexNormals();
+
+				const centerOffset = 0   ;
+
+				let textMesh1 = new THREE.Mesh( textGeo, material );
+
+				textMesh1.position.x = 0.16;
+				textMesh1.position.y = 0.2;
+				textMesh1.position.z = 0;
+
+				var  axis = new THREE.Vector3(0,1,0);
+				rotateAroundWorldAxis(textMesh1, axis, Math.PI * 0.5  );
+
+			 
+
+				textMesh1.scale.set(0.002,0.002,0.002)
+
+				group.add( textMesh1 );
+
+				return textMesh1
+
+				/*if ( mirror ) {
+
+					textMesh2 = new THREE.Mesh( textGeo, material );
+
+					textMesh2.position.x = centerOffset;
+					textMesh2.position.y = - hover;
+					textMesh2.position.z = height;
+
+					textMesh2.rotation.x = Math.PI;
+					textMesh2.rotation.y = Math.PI * 2;
+
+					group.add( textMesh2 );
+
+				}*/
+
+			}
+
+			function loadGifMaterial(){
+
+
+				
+
+
+				const textureLoader = new TextureLoader();
+
+				
+
+				// load a texture
+				const texture = textureLoader.load(
+				'./assets/textures/gif15C.gif',
+				);
+
+				let gifTex =  loadGif( texture, function(){
+
+				}  )
+ 
+
+				let material = new MeshStandardMaterial({
+					map: texture,
+				});
+
+ 
+				/*let material = new THREE.MeshBasicMaterial({
+					map: texture,
+					transparent: true
+				});*/
+
+				return material 
+			}
+
+			function refreshText() {
+
+				group.remove( textMesh1 );
+				if ( mirror ) group.remove( textMesh2 );
+
+				if ( ! text ) return;
+
+				createText();
+
+			}
+
+
+
+
+
+
+			function animate() {
+
+			/*	requestAnimationFrame( animate );
+
+				group.rotation.y += ( targetRotation - group.rotation.y ) * 0.05;
+
+				camera.lookAt( cameraTarget );*/
+
+				group.rotation.y +=  0.005;
+
+
+				renderer.render( scene, camera );
+
+			}
+
+
+
+
+			var rotWorldMatrix;
+			// Rotate an object around an arbitrary axis in world space       
+			function rotateAroundWorldAxis(object, axis, radians) {
+				rotWorldMatrix = new THREE.Matrix4();
+				rotWorldMatrix.makeRotationAxis(axis.normalize(), radians);
+
+				// old code for Three.JS pre r54:
+				//  rotWorldMatrix.multiply(object.matrix);
+				// new code for Three.JS r55+:
+				rotWorldMatrix.multiply(object.matrix);                // pre-multiply
+
+				object.matrix = rotWorldMatrix;
+
+				// old code for Three.js pre r49:
+				// object.rotation.getRotationFromMatrix(object.matrix, object.scale);
+				// old code for Three.js pre r59:
+				// object.rotation.setEulerFromRotationMatrix(object.matrix);
+				// code for r59+:
+				object.rotation.setFromRotationMatrix(object.matrix);
+			}
+ 
+		
+		</script>
+
+	</body>
+</html>
