@@ -1,8 +1,5 @@
 ## Digital Toast 
 
 
-
-TODO:
- 
--sometimes wireframe 
+There can only be 21 for the burners 
  
