@@ -98,6 +98,8 @@ async function init() {
 
      console.log('Hi there, friend! - InfernalToast')
 
+     hideLoadingMessage()
+
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -292,6 +294,16 @@ async function loadTheToast( group ){
 
 }
 
+
+function hideLoadingMessage(){
+    var loadingDiv = document.getElementById("loading");
+
+    console.log('hide ', loadingDiv)
+
+    loadingDiv.classList.add("hidden"); 
+
+}
+
 function render() {
 
     renderer.render( scene, camera );
@@ -341,30 +353,14 @@ function createTextGeometry(font, textString , heightOffset) {
 
   
     textMesh1.scale.set(0.002,0.002,0.002)
- 
-
-   // anchor.add( textMesh1 );
+  
 
     return textMesh1
 
     
 
 }
- 
-
-function refreshText() {
-
-    group.remove( textMesh1 );
-    if ( mirror ) group.remove( textMesh2 );
-
-    if ( ! text ) return;
-
-    createText();
-
-}
-
-
- 
+  
 
 
 function animate() {
@@ -383,9 +379,9 @@ function animate() {
      
    }
  
-    console.log(controls)
+     
    let controlsState = controls.getState();
-   console.log('meep', controlsState)
+  
    let currentlyPanning = (controlsState >= 0)
 
    if(!currentlyPanning){

@@ -8,6 +8,11 @@ body {
 	overscroll-behavior: none;
 }
 
+
+.hidden{
+	display: none;
+}
+
 a {
 	color: #ff0;
 	text-decoration: none;
