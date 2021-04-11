@@ -8,4 +8,4 @@ There can only be 21 for the burners
  
  
  
- [Digitaltoast.0xbtc.io](https://digitaltoast.0xbtc.io)
+ View the NFT: [Digitaltoast.0xbtc.io](https://digitaltoast.0xbtc.io)
